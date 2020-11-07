@@ -7,6 +7,7 @@ The given .json file should be a list of dictionaries, all dictionaries having t
 # References
 1) https://www.tutorialspoint.com/flask/index.htm
 2) https://codepen.io/emiemi/pen/zxNXWR
+3) https://stackoverflow.com/
 
 # Requirements
 Mainly you have to install flask using 'pip install flask' and flask-sqlalchemy 'pip install flask-sqlalchemy' (or use pip3). But the requirements.txt file contains all the modules installed on my machine, so you can use that too.
