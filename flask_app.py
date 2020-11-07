@@ -93,7 +93,11 @@ def signup_post():
         return redirect('/signup')
     vcode=str(randint(100000,999999))
     user_dic[email]=[name,generate_password_hash(password, method='sha256'),vcode]
-    sendVerificationEmail(email,vcode)
+    try:
+    	sendVerificationEmail(email,vcode)
+    except:
+    	flash('Unable to send Email')
+    	return redirect('/signup')
     return render_template('verify.html',email=email,goto="/verify")
 
 @app.route('/fverify', methods=['POST','GET'])
