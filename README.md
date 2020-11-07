@@ -10,4 +10,4 @@ The given .json file should be a list of dictionaries, all dictionaries having t
 3) https://stackoverflow.com/
 
 # Requirements
-Mainly you have to install flask using 'pip install flask' and flask-sqlalchemy 'pip install flask-sqlalchemy' (or use pip3). But the requirements.txt file contains all the modules installed on my machine, so you can use that too.
+Mainly you have to install flask using 'pip install flask', flask-sqlalchemy using 'pip install flask-sqlalchemy' and flask-login using 'pip install flask-login' (or use pip3). But the requirements.txt file contains all the modules installed on my machine, so you can use that too.
