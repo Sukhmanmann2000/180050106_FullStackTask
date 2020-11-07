@@ -6,11 +6,7 @@ from werkzeug.utils import secure_filename
 from random import randint
 from emailSender import sendVerificationEmail
 import os
-import time
-import shutil
-import numpy
 import json
-from datetime import datetime
 # init SQLAlchemy so we can use it later in our models
 db = SQLAlchemy()
 class User(UserMixin, db.Model):
@@ -254,7 +250,8 @@ def uploaded_file(filename):
 	fd = json.loads(current_user.data)
 	return render_template('showFile.html',data=fd,name=current_user.name)
 if __name__=='__main__':
-	# with app.app_context():
-	# 	db.create_all()
-	app.run()
+    if not(os.path.exists('db.sqlite')):
+        with app.app_context():
+            db.create_all()
+    app.run(host='0.0.0.0')
 
