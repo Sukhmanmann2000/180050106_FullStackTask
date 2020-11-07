@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Full Stack Task</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='bulma.min.css')}}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Monoton|Rye|Volkhov:wght@700&display=swap" rel="stylesheet">
+    <style type="text/css">
+        .navbar-end  a:hover{
+            background-color: #B3BDB2 !important;
+            color: white !important;
+            font-size: 20px;
+        }
+        .navbar-end a{
+            font-size: 20px;
+            color: orange !important;
+        }
+        html, body {
+           height: 100%;
+         }
+         body{
+            background-image: url({{url_for('static',filename='back_pic.jpg')}});
+         }
+         body{
+            height: 100%;
+            background-attachment: fixed;
+            background-position: center center;
+            /*background-repeat: no-repeat;*/
+            background-size: cover;
+         }
+    </style>
+</head>
+
+<body style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;color: white">
+    <div class="container-fluid">
+        <div style="z-index: 9;">
+        <h1 style="text-decoration-line: underline;font-family: 'Volkhov',serif;font-size: 4vw;color: orange;">Full Stack Task<sub style="font-size: 1vw;color: yellow;text-decoration-line: underline;text-decoration-style: double;text-decoration-color: orange;">&nbsp;&nbsp;&nbsp;Just a normal upload page</sub></h1>
+        <p style="font-size: 1.5vw;text-align: justify">Web app to upload and display JSON file</p>
+        </div>
+        <p style="color:#FFA00E;font-size: 1.2vw;position: fixed;bottom: 7vh;right: 1em;z-index: 9">Designed by:</p>
+       <p style="font-size: 1.2vw;position: fixed;bottom: 3.5vh;right: 1em;z-index: 9">Sukhmanjit Singh Mann</p>
+        <div class="hero-body">
+            <div class="container has-text-centered">
+               {% block content %}
+               {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

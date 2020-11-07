@@ -1,0 +1,193 @@
+<html>
+   <head>
+      <title>Full Stack Task</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Monoton|Rye|Volkhov:wght@700&display=swap" rel="stylesheet">
+      <script>
+        
+      </script>
+      <style type="text/css">
+         .nav{
+            background-color: #6E7A6C;
+         }
+         .nav-tabs .active a{
+            background-color: #B3BDB2 !important;
+            color: white !important;
+            font-size: 1.2vw;
+         }
+         .nav-tabs  a:hover{
+            background-color: #B3BDB2 !important;
+            color: white !important;
+            font-size: 1.2vw;
+         }
+         .nav-tabs li{
+            background-color: #6E7A6C !important;
+            font-size: 1.2vw;
+         }
+         .nav-tabs li a{
+            color: white !important;
+         }
+         input{
+            color: black;
+         }
+         html, body {
+           height: 100%;
+         }
+         body{
+            background-image: url({{url_for('static',filename='back_pic.jpg')}});
+         }
+         body{
+            height: 100%;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+         }
+         #content{
+            position: fixed;
+            top: 0vh;
+         }
+         #myCarousel{
+            position: fixed;
+            bottom: 22vh;
+            right: -5vw;
+         }
+         #myCarouselCaption{
+            position: fixed;
+            bottom: 12.5vh;
+            right: 0.5vw;
+            border: 0.3vw solid;
+            border-color: black;
+         }
+         .link{
+            color: white;
+         }
+         .link:hover{
+            color: orange;
+         }
+         .center{
+            text-align:center;  
+         }
+         #top{
+            margin-top:20px;  
+         }
+         .btn-container{
+            background:#fff;
+            border-radius:5px;
+            padding-bottom:20px;
+            margin-bottom:20px;
+         }
+         .white{
+            color:white;
+         }
+         .imgupload{
+            color:#1E2832;
+            padding-top:40px;
+            font-size:7em;
+         }
+         #namefile{
+            color:black;
+         }
+         h4>strong{
+            color:#ff3f3f
+         }
+         .btn-primary{
+            border-color: #ff3f3f !important;
+            color: #ffffff;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+            background-color: #ff3f3f !important;
+            border-color: #ff3f3f !important;
+         }
+         #submitbtn{
+           padding:5px 50px;
+         }
+         
+         #inp {
+           text-align: center;
+           margin: auto;
+         }
+         /*https://codepen.io/emiemi/pen/zxNXWR*/
+      </style>
+   </head>
+   <body style="font-size: 1.1vw;color: white;">
+      <div style="position: relative;" id="content" class="container-fluid">
+         <div class="row" style="background-color: #6E7A6C">
+         <div class="col-sm-6">
+         <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+            <li><a data-toggle="tab" href="#about">About</a></li>
+         </ul>
+         </div>
+         <div class="col-sm-6" style="text-align: right;margin-top: 1.8vh;font-size: 2vh;color: yellow">
+            {% if current_user.is_authenticated %}
+            Welcome! {{name}}
+            &nbsp;&nbsp;&nbsp;&nbsp;
+             <a href="/logout" class="link">
+                 Logout
+             </a>
+             {% endif %}
+            &nbsp;&nbsp;&nbsp;&nbsp;
+         </div>
+         </div>
+         <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+               <p style="color:#FFA00E;font-size: 1.2vw;position: fixed;bottom: 7vh;right: 1em;z-index: 9">Designed by:</p>
+               <p style="font-size: 1.2vw;position: fixed;bottom: 3.5vh;right: 1em;z-index: 9">Sukhmanjit Singh Mann</p>
+               
+               <h1 style="text-decoration-line: underline;font-family: 'Volkhov',serif;font-size: 4vw;color: orange;">Full Stack Task<sub style="font-size: 1vw;color: yellow;text-decoration-line: underline;text-decoration-style: double;text-decoration-color: orange;">&nbsp;&nbsp;&nbsp;Just a normal upload page</sub></h1>
+               <!-- <form id="myForm" name="createResult" enctype="multipart/form-data" method = "POST">
+                  <input type="file" name="file" style="color: white">
+                  <p><input type = "submit" value = "submit" /></p>
+               </form> -->
+               <div class="container center">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <h1 class="white">Upload a file</h1>
+                        <p class="white">Browse and upload a .json file</p>
+                     </div>
+                  </div>
+                  <form id="myForm" name="createResult" enctype="multipart/form-data" method = "POST">
+                     <div class="row">
+                        <div class="col-md-6 col-md-offset-3 center">
+                           <div class="btn-container">
+                              <h1 class="imgupload"><i class="fa fa-file-text"></i></h1>
+                              <p id="namefile">Only .json allowed!</p>
+                              <input id="inp" class="btn btn-primary" type="file" name="file" style="color: white">
+                              {% with messages = get_flashed_messages() %}
+                             {% if messages %}
+                                 <div style="color: red;">
+                                     {{ messages[0] }}.
+                                 </div>
+                             {% endif %}
+                             {% endwith %}
+                           </div>
+                        </div>
+                     </div>
+                     <p><input type="submit" value="Submit" class="btn btn-primary" id="submitbtn"></p>
+                  </form>
+                  
+               </div>
+            </div>
+            
+            <div id="about" class="tab-pane fade">
+               <div class="row">
+                  <div class="col-sm-2"></div>
+                  <div class="col-sm-8">
+                     <div style="text-align: center;">
+                        <h1 style="color: orange;font-family: 'Volkhov',serif;">About</h1>
+                        <p>This web app is designed as a part of the FinancePeer assignment. For any clarifications, my contact info is:<br>
+                           <strong>Email: </strong>180050106@iitb.ac.in<br>Sukhmanjit Singh Mann<br>180050106<br>CSE Department, IIT Bombay</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            
+         </div>
+      </div>
+   </body>
+</html>
