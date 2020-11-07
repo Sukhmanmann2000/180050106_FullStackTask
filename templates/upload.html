@@ -111,19 +111,18 @@
            text-align: center;
            margin: auto;
          }
-         /*https://codepen.io/emiemi/pen/zxNXWR*/
       </style>
    </head>
    <body style="font-size: 1.1vw;color: white;">
       <div style="position: relative;" id="content" class="container-fluid">
          <div class="row" style="background-color: #6E7A6C">
-         <div class="col-sm-6">
+         <div class="col-sm-2">
          <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
             <li><a data-toggle="tab" href="#about">About</a></li>
          </ul>
          </div>
-         <div class="col-sm-6" style="text-align: right;margin-top: 1.8vh;font-size: 2vh;color: yellow">
+         <div class="col-sm-10" style="text-align: right;margin-top: 1.8vh;font-size: 2vh;color: yellow">
             {% if current_user.is_authenticated %}
             Welcome! {{name}}
             &nbsp;&nbsp;&nbsp;&nbsp;
