@@ -22,6 +22,7 @@ class User(UserMixin, db.Model):
 app = Flask(__name__)
 
 UPLOAD_FOLDER = 'upload_folder'
+os.makedirs(UPLOAD_FOLDER,exist_ok=True)
 ALLOWED_EXTENSIONS = {'json'}
 app.config['SECRET_KEY'] = '9OLWxND4o83j4K4iuopO'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
