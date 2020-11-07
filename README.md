@@ -6,5 +6,5 @@ After cloning the repo using 'git clone https://github.com/Sukhmanmann2000/18005
 1) https://www.tutorialspoint.com/flask/index.htm
 2) https://codepen.io/emiemi/pen/zxNXWR
 
-# Requiresments
+# Requirements
 Mainly you have to install flask using 'pip install flask' and flask-sqlalchemy 'pip install flask-sqlalchemy' (or use pip3). But the requirements.txt file contains all the modules installed on my machine, so you can use that too.
